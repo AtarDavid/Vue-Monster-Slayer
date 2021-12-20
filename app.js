@@ -8,10 +8,12 @@ Vue.createApp({
   },
   computed: {
     monsterBarStyles() {
-      return { width: `${this.monsterHealth}%` };
+      const width = this.monsterHealth < 0 ? 0 : this.monsterHealth;
+      return { width: `${width}%` };
     },
     playerBarStyles() {
-      return { width: `${this.playerHealth}%` };
+      const width = this.playerHealth < 0 ? 0 : this.playerHealth;
+      return { width: `${width}%` };
     },
     specialAttackDisabled() {
       return this.roundCounter < 3;
